@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        
+        $this->load->model('usuario');
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,6 +26,28 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('header');
+		$this->load->view('welcome');
+		$this->load->view('footer');
 	}
+
+	public function login()
+	{
+		$this->load->view('header');
+		$this->load->view('login');
+		$this->load->view('footer');
+	}
+	    
+    public function signin() {
+        $mail = $this->input->post('mail');
+        $pass = $this->input->post('pass');
+        
+        $arrayUser = $this->usuario->login($mail, md5($pass));
+        if (count($arrayUser) > 0) {
+            //$this->session->set_userdata("user", $arrayUser);
+            echo json_encode(array("msg" => "1"));
+        } else {
+            echo json_encode(array("msg" => "0"));
+        }
+    }
 }
