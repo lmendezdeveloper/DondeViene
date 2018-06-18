@@ -49,5 +49,11 @@ class Welcome extends CI_Controller {
         } else {
             echo json_encode(array("msg" => "0"));
         }
-    }
+	}
+	
+	public function home() {
+		$this->load->view('header');
+		$this->load->view('home');
+		$this->load->view('footer');
+	}
 }

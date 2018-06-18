@@ -1,4 +1,6 @@
-$(document).ready(function() {    
+$(document).ready(function() {
+    
+    var base_url = 'http://localhost/DondeViene/';
     
     $("#btn_login").on("click",function(e){
         e.preventDefault();
@@ -12,6 +14,7 @@ $(document).ready(function() {
             data:{mail:mail, pass:pass},
             success:function(o){
                 if (o.msg == "1") {
+                    window.location.href = base_url+"home";
                     Materialize.toast("Usuario Valido","4000");
                 } else {
                     Materialize.toast("Datos Incorrectos","4000");

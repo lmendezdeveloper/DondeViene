@@ -1,4 +1,4 @@
-<body class="signin-page">
+<body class="signin-page customBackground">
     <div class="loader-bg"></div>
     <div class="loader">
         <div class="preloader-wrapper big active">
