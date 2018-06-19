@@ -39,8 +39,6 @@
                 <tbody id="table_body">
                 </tbody>
             </table>
-            
-            <br><br><br><br>
         </div>
     </div>
 </div>
@@ -57,10 +55,10 @@
                 fil += "<td>"+o.MONTO+"</td>";
                 fil += "<td>"+o.VIGENCIA+"</td>";
                 fil += "<td>ACTIVO</td>";
-                fil += "<td>"+o.ID_TRAYECTO+"</td>";
+                fil += "<td>"+o.NOMBRE+"</td>";
                 fil += "<td style='display:none'>"+o.ID_TARIFA+"</td>"
-                fil += "<td nowrap class='right-align'><a id='editar_chofer' class='btn-flat'><i class='material-icons icon-cog' style='color:blue'>mode_edit</i></a>";
-                fil += "<a id='eliminar_chofer' class='btn-flat'><i class='material-icons icon-cog' style='color:red'>delete</i></a></td>";
+                fil += "<td class='center-align'> <a id='modal_edit' href='#' class='btn-floating btn blue'><i class='large material-icons'>mode_edit</i></a></td>";
+                fil += "<td class='center-align'> <a id='eliminar_tarifa' href='#' class='btn-floating btn red'><i class='large material-icons'>delete</i></a></td>";
                 fil += "</tr>";
                 $("#table_body").append(fil);
             });

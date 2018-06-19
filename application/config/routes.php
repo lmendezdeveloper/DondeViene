@@ -58,14 +58,23 @@ $route['home'] = 'Welcome/home';
 // rutas chofer //
 $route['chofer'] = 'Welcome/chofer';
 $route['lista_choferes'] = 'Welcome/lista_choferes';
+$route['agregar_chofer'] = 'Welcome/agregar_chofer';
+$route['editar_chofer'] = 'Welcome/editar_chofer';
+$route['eliminar_chofer'] = 'Welcome/eliminar_chofer';
 
 // rutas microbus //
 $route['microbus'] = 'Welcome/microbus';
 $route['lista_microbus'] = 'Welcome/lista_microbus';
+$route['agregar_microbus'] = 'Welcome/agregar_microbus';
+$route['editar_microbus'] = 'Welcome/editar_microbus';
+$route['eliminar_microbus'] = 'Welcome/eliminar_microbus';
 
 // rutas linea //
 $route['linea'] = 'Welcome/linea';
 $route['lista_lineas'] = 'Welcome/lista_lineas';
+$route['agregar_linea'] = 'Welcome/agregar_linea';
+$route['editar_linea'] = 'Welcome/editar_linea';
+$route['eliminar_linea'] = 'Welcome/eliminar_linea';
 
 // rutas tarifa //
 $route['tarifa'] = 'Welcome/tarifa';
