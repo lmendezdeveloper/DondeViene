@@ -6,7 +6,12 @@ class Welcome extends CI_Controller {
     public function __construct() {
         parent::__construct();
         
-        $this->load->model('usuario');
+		$this->load->model('usuario');
+		$this->load->model('chofer');
+		$this->load->model('microbus');
+		$this->load->model('linea');
+		$this->load->model('horario');
+		$this->load->model('tarifa');
     }
 
 	/**
@@ -56,4 +61,55 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('footer');
 	}
+
+	// controller chofer //
+
+	public function chofer() {
+		$this->load->view('chofer');
+	}
+
+	public function lista_choferes() {
+		echo json_encode($this->chofer->lista_choferes());
+	}
+
+	// controller microbus //
+
+	public function microbus() {
+		$this->load->view('microbus');
+	}
+
+	public function lista_microbus() {
+		echo json_encode($this->microbus->lista_microbus());
+	}
+
+	// controller linea //
+
+	public function linea() {
+		$this->load->view('linea');
+	}
+
+	public function lista_lineas() {
+		echo json_encode($this->linea->lista_lineas());
+	}
+
+	// controller tarifa //
+
+	public function tarifa() {
+		$this->load->view('tarifa');
+	}
+
+	public function lista_tarifas() {
+		echo json_encode($this->tarifa->lista_tarifas());
+	}
+
+	// controller horario //
+
+	public function horario() {
+		$this->load->view('horario');
+	}
+
+	public function lista_horarios() {
+		echo json_encode($this->horario->lista_horarios());
+	}
+	
 }

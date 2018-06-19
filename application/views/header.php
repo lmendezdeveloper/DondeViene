@@ -33,7 +33,9 @@
         <!-- Scripts -->
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
 
-         <!-- CSS -->
-         <script src="<?php echo base_url() ?>assets/css/custom.css"></script>
+        <!-- CSS -->
+        <script src="<?php echo base_url() ?>assets/css/custom.css"></script>
+
+        <script> var base_url="http://localhost/DondeViene/"; </script>
         
     </head>

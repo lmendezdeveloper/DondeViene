@@ -60,7 +60,7 @@
                 <div class="side-nav-wrapper">
                     <div class="sidebar-profile">
                         <div class="sidebar-profile-image">
-                            <img src="assets/images/custom/.jpg" class="circle" alt="">
+                            <img src="assets/img/perfil1.png" class="circle" alt="">
                         </div>
                         <div class="sidebar-profile-info">
                             <p>Luis Méndez Méndez</p>
@@ -72,24 +72,24 @@
                             <a  id="item_inicio" class="collapsible-header waves-effect waves-grey active"><i class="material-icons">home</i>Inicio<i class="nav-drop-icon material-icons"></i></a>
                         </li>
                          <li class="no-padding">
-                            <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">developer_board</i>Mantenedores<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                            <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">settings</i>Mantenedores<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a class="waves-effect waves-grey" id="item_perfil">Choferes</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_usuario">Microbuses</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_colegio">Lineas</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_saldo">Tarifas</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_saldo">Horarios</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_chofer"><i class="material-icons">airline_seat_recline_normal</i>Choferes</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_microbus"><i class="material-icons">directions_bus</i>Microbuses</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_linea"><i class="material-icons">timeline</i>Lineas</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_tarifa"><i class="material-icons">attach_money</i>Tarifas</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_horario"><i class="material-icons">calendar_today</i>Horarios</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li class="no-padding">
-                            <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">dashboard</i>Reportes<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
+                            <a class="collapsible-header waves-effect waves-grey"><i class="material-icons">list_alt</i>Reportes<i class="nav-drop-icon material-icons">keyboard_arrow_right</i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a class="waves-effect waves-grey" id="item_proveedor">Frecuencias</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_proveedor">Pasajeros</a></li>
-                                    <li><a class="waves-effect waves-grey" id="item_proveedor">Preferencias</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_proveedor"><i class="material-icons">departure_board</i>Frecuencias</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_proveedor"><i class="material-icons">group</i>Pasajeros</a></li>
+                                    <li><a class="waves-effect waves-grey" id="item_proveedor"><i class="material-icons">done_all</i>Preferencias</a></li>
                                 </ul>
                             </div>
                         </li>

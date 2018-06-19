@@ -49,11 +49,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+// rutas principales //
 $route['default_controller'] = 'welcome';
 $route['login'] = 'Welcome/login';
 $route['signin'] = 'Welcome/signin';
 $route['home'] = 'Welcome/home';
 
+// rutas chofer //
+$route['chofer'] = 'Welcome/chofer';
+$route['lista_choferes'] = 'Welcome/lista_choferes';
 
+// rutas microbus //
+$route['microbus'] = 'Welcome/microbus';
+$route['lista_microbus'] = 'Welcome/lista_microbus';
+
+// rutas linea //
+$route['linea'] = 'Welcome/linea';
+$route['lista_lineas'] = 'Welcome/lista_lineas';
+
+// rutas tarifa //
+$route['tarifa'] = 'Welcome/tarifa';
+$route['lista_tarifas'] = 'Welcome/lista_tarifas';
+
+// rutas horario //
+$route['horario'] = 'Welcome/horario';
+$route['lista_horarios'] = 'Welcome/lista_horarios';
+
+// rutas errores //
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
