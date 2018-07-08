@@ -49,10 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+// RUTAS PRINCIPALES //
 $route['default_controller'] = 'welcome';
-$route['login'] = 'Welcome/login';
 $route['signin'] = 'Welcome/signin';
+$route['logout'] = 'Welcome/logout';
 $route['home'] = 'Welcome/home';
 
+// RUTAS CHOFERES //
+$route['modulo_choferes'] = 'Welcome/modulo_choferes';
+$route['list_choferes'] = 'Welcome/list_choferes';
+$route['add_choferes'] = 'Welcome/add_choferes';
+$route['edit_choferes'] = 'Welcome/edit_choferes';
+$route['delete_choferes'] = 'Welcome/delete_choferes';
+
+// RUTAS CONTINGENCIAS //
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

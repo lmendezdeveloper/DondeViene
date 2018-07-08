@@ -24,4 +24,9 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#item_choferes").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_choferes");
+    });
 });

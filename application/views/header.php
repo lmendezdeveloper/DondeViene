@@ -38,7 +38,7 @@
 <body class="home-body"> 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 		<!-- Logo -->
-		<a class="navbar-brand" href="#" id="item_inicio">Donde Viene</a>
+		<a class="navbar-brand" href="#" id="item_inicio"><i class="fas fa-map-marker-alt"></i>&nbspDonde Viene</a>
 		&nbsp;&nbsp;
 		<!-- Navbar -->
 		<ul class="navbar-nav">
@@ -48,7 +48,7 @@
 				Mantenedores
 			</a>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#" id="item_proveedor">Choferes</a>
+				<a class="dropdown-item" href="#" id="item_choferes">Choferes</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Microbus</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Lineas</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Horarios</a>
