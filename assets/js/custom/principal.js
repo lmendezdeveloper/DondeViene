@@ -29,4 +29,9 @@ $(document).ready(function () {
         e.preventDefault();
         $("main").load(base_url + "modulo_choferes");
     });
+
+    $("#item_micros").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_micros");
+    });
 });

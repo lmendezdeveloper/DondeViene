@@ -43,11 +43,3 @@ body {
     margin-left: 1% !important;
     margin-right: 1% !important;
 }
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type=number] { -moz-appearance:textfield; }

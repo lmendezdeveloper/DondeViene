@@ -6,14 +6,15 @@ class Chofer extends CI_Model{
         return $this->db->get("chofer")->result();
     }
 
-    public function add_choferes($rut, $nombres, $apellidop, $apellidom, $celular, $correo) {
+    public function add_choferes($rut, $nombres, $apellidop, $apellidom, $celular, $correo, $id_empresa) {
         $data=array("id_chofer"=>null,
         "rut"=>$rut, 
         "nombre"=>$nombres,  
         "apellidop"=>$apellidop,
         "apellidom"=>$apellidom, 
         "telefono"=>$celular, 
-        "mail"=>$correo
+        "mail"=>$correo,
+        "id_empresa"=>$id_empresa
         );
         
         return $this->db->insert("chofer", $data);

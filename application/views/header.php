@@ -32,6 +32,7 @@
   <!-- Custom jQuery -->
   <script src="<?php echo base_url() ?>assets/js/custom/principal.js" type="text/javascript"></script>
   <script src="<?php echo base_url() ?>assets/js/jquery.rut.js" type="text/javascript"></script>
+  <script src="<?php echo base_url() ?>assets/js/year-select.js" type="text/javascript"></script>
 
 </head>
 
@@ -49,7 +50,7 @@
 			</a>
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="#" id="item_choferes">Choferes</a>
-				<a class="dropdown-item" href="#" id="item_proveedor">Microbus</a>
+				<a class="dropdown-item" href="#" id="item_micros">Microbus</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Lineas</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Horarios</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Tarifas</a>

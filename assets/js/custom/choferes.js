@@ -131,15 +131,24 @@ $("#btn_add").on("click", function (e) {
                                 dataType: 'json',
                                 data: { rut: rut, nombres: nombres, apellidop: apellidop, apellidom: apellidom, celular: celular, correo: correo },
                                 success: function (o) {
-                                    table_body();
-                                    $("#rut").val("");
-                                    $("#nombres").val("");
-                                    $("#apellidop").val("");
-                                    $("#apellidom").val("");
-                                    $("#celular").val("");
-                                    $("#correo").val("");
-                                    $("#msg_nofify_add").val("");
-                                    $('#modal_nuevo_chofer').modal('hide');
+                                    console.log(o.msg);
+                                    if(o.msg == "1") {
+                                        table_body();
+                                        $("#rut").val("");
+                                        $("#nombres").val("");
+                                        $("#apellidop").val("");
+                                        $("#apellidom").val("");
+                                        $("#celular").val("");
+                                        $("#correo").val("");
+                                        $("#msg_nofify_add").val("");
+                                        $("#msg_nofify_edit").val("");
+                                        $("#msg_nofify").val("");
+                                        $('#modal_nuevo_chofer').modal('hide');
+                                    } else {
+                                        $("#msg_nofify_add").css({ color: "red" });
+                                        $("#msg_nofify_add").val("No se pudo agregar, disculpe las molestias");
+                                    }
+                                    
                                 },
                                 error: function (e) {
                                     $("#msg_nofify_add").css({ color: "red" });
@@ -204,7 +213,9 @@ $("#btn_edit").on("click", function (e) {
                             $("#apellidom").val("");
                             $("#celular").val("");
                             $("#correo").val("");
+                            $("#msg_nofify_add").val("");
                             $("#msg_nofify_edit").val("");
+                            $("#msg_nofify").val("");
                             $('#modal_editar_chofer').modal('hide');
                         },
                         error: function (e) {
