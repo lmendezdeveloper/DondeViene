@@ -51,7 +51,7 @@
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="#" id="item_choferes">Choferes</a>
 				<a class="dropdown-item" href="#" id="item_micros">Microbus</a>
-				<a class="dropdown-item" href="#" id="item_proveedor">Lineas</a>
+				<a class="dropdown-item" href="#" id="item_lineas">Lineas</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Horarios</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Tarifas</a>
 				<a class="dropdown-item" href="#" id="item_proveedor">Trayectos</a>

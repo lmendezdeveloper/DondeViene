@@ -34,4 +34,9 @@ $(document).ready(function () {
         e.preventDefault();
         $("main").load(base_url + "modulo_micros");
     });
+
+    $("#item_lineas").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_lineas");
+    });
 });
