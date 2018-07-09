@@ -43,7 +43,7 @@ CREATE TABLE `usuario` (
   CONSTRAINT `fk_id_empresa_usuario` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `usuario` VALUES (null, 'Luis','Méndez Méndez', 'luis.mendez18@inacapmail.cl','950919446', 1, md5('t0w1tf1tr'), 1), (null, 'Rodrigo','Manriquez Gonzalez', 'rodrigo.manriquez11@inacapmail.cl', '974489986', 1, md5('honda2013'), 1);
+INSERT INTO `u6suario` VALUES (null, 'Luis','Méndez Méndez', 'luis.mendez18@inacapmail.cl','950919446', 1, md5('t0w1tf1tr'), 1), (null, 'Rodrigo','Manriquez Gonzalez', 'rodrigo.manriquez11@inacapmail.cl', '974489986', 1, md5('honda2013'), 1);
 
 DROP TABLE IF EXISTS `chofer`;
 CREATE TABLE `chofer` (
@@ -93,3 +93,21 @@ CREATE TABLE `linea` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `linea` VALUES (null, 'LN-A','LINEA A', 1, 'LINEA A', 1);
+
+DROP TABLE IF EXISTS `horario`;
+CREATE TABLE `horario` (
+  `id_horario` int(11) AUTO_INCREMENT NOT NULL,
+  `codigo` varchar(10) NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_termino` time NOT NULL,
+  `fecha` date NOT NULL,
+  `vigencia` date NOT NULL,
+  `observacion` varchar(50) NOT NULL,
+  `estado` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
+  PRIMARY KEY (`id_horario`),
+  KEY `fk_id_empresa_horario` (`id_empresa`),
+  CONSTRAINT `fk_id_empresa_horario` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `horario` VALUES (null, 'HRN-1','11:12:00', '11:12:00', '2018-03-25', '2019-03-25', 'HORARIO LUNES A VIERNES NORMAL', 1, 1);

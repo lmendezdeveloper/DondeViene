@@ -49,12 +49,12 @@
 				Mantenedores
 			</a>
 			<div class="dropdown-menu">
+				<a class="dropdown-item" href="#" id="item_usuarios">Usuarios</a>
 				<a class="dropdown-item" href="#" id="item_choferes">Choferes</a>
 				<a class="dropdown-item" href="#" id="item_micros">Microbus</a>
 				<a class="dropdown-item" href="#" id="item_lineas">Lineas</a>
-				<a class="dropdown-item" href="#" id="item_proveedor">Horarios</a>
-				<a class="dropdown-item" href="#" id="item_proveedor">Tarifas</a>
-				<a class="dropdown-item" href="#" id="item_proveedor">Trayectos</a>
+				<a class="dropdown-item" href="#" id="item_horarios">Horarios</a>
+				<a class="dropdown-item" href="#" id="item_tarifas">Tarifas</a>				
 			</div>
 			</li>
 			<li class="nav-item dropdown">
@@ -62,7 +62,7 @@
 				Gestores
 			</a>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">a</a>
+				<a class="dropdown-item" href="#" id="item_trayecto">Trayectos</a>
 				<a class="dropdown-item" href="#">b</a>
 				<a class="dropdown-item" href="#">c</a>
 			</div>

@@ -202,17 +202,17 @@ $("#btn_edit").on("click", function (e) {
                     success: function (o) {
                         if (o.msg == "1") {
                             table_body();
-                            $("#codigo").val("");
-                            $("#nombre").val("");
-                            $('#list_estado').val(1);
-                            $("#observacion").val("");
+                            $("#new_codigo").val("");
+                            $("#new_nombre").val("");
+                            $('#new_list_estado').val(1);
+                            $("#new_observacion").val("");
                             $("#msg_nofify_add").val("");
                             $("#msg_nofify_edit").val("");
                             $("#msg_nofify").val("");
                             $('#modal_editar_linea').modal('hide');
                         } else {
                             $("#msg_nofify_edit").css({ color: "red" });
-                            $("#msg_nofify_edit").val("No se pudo agregar, disculpe las molestias");
+                            $("#msg_nofify_edit").val("No se pudo editar, disculpe las molestias");
                         }
                     },
                     error: function (e) {

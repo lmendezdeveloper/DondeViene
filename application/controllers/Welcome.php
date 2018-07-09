@@ -9,7 +9,8 @@ class Welcome extends CI_Controller {
 		$this->load->model('usuario');
 		$this->load->model('chofer');
 		$this->load->model('micros');
-		$this->load->model('lineas');		
+		$this->load->model('lineas');	
+		$this->load->model('horarios');	
     }
 
 	// CONTROLADOR PRINCIPAL //
@@ -56,6 +57,17 @@ class Welcome extends CI_Controller {
 		} else {
 			$this->load->view('login'); 
 		}		
+	}
+
+	// CONTROLLER USUARIOS //
+
+	// cargar modulo usuarios //
+	public function modulo_usuarios() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('mantenedores/usuarios');
+		} else {
+			$this->load->view('login'); 
+		}
 	}
 
 	// CONTROLLER CHOFERES //
@@ -283,6 +295,84 @@ class Welcome extends CI_Controller {
 			$this->load->view('login'); 
 		}
 	}
-		
+
+	// CONTROLLER HORARIOS //
+
+	// cargar modulo horarios //
+	public function modulo_horarios() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('mantenedores/horarios');
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// listar horarios //
+    public function list_horarios() {
+        if ($this->session->userdata("user")) {
+        	echo json_encode($this->horarios->list_horarios());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// agregar horarios //
+	public function add_horarios() {
+		if ($this->session->userdata("user")) {
+			$codigo = $this->input->post("codigo");
+			$hora_inicio = $this->input->post("hora_inicio");
+			$hora_termino = $this->input->post("hora_termino");
+			$fecha = $this->input->post("fecha_inicio");
+			$vigencia = $this->input->post("fecha_termino");
+			$observacion = $this->input->post("observacion");
+			$estado = $this->input->post("list_estado");
+			$id_empresa = 1;
+								
+			if ($this->horarios->add_horarios($codigo, $hora_inicio, $hora_termino, $fecha, $vigencia, $observacion, $estado, $id_empresa)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// editar horarios //
+	public function edit_horarios() {
+		if ($this->session->userdata("user")) {
+			$id_horario = $this->input->post("id_horario");
+			$codigo = $this->input->post("codigo");
+			$hora_inicio = $this->input->post("hora_inicio");
+			$hora_termino = $this->input->post("hora_termino");
+			$fecha = $this->input->post("fecha_inicio");
+			$vigencia = $this->input->post("fecha_termino");
+			$observacion = $this->input->post("observacion");
+			$estado = $this->input->post("list_estado");
+	
+			if ($this->horarios->edit_horarios($id_horario, $codigo, $hora_inicio, $hora_termino, $fecha, $vigencia, $observacion, $estado)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// eliminar horarios //
+	public function delete_horarios() {
+		if ($this->session->userdata("user")) {
+			$id_horario = $this->input->post("id_horario");
+			
+			if ($this->horarios->delete_horarios($id_horario)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}		
 
 }

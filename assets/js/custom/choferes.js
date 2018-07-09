@@ -131,8 +131,7 @@ $("#btn_add").on("click", function (e) {
                                 dataType: 'json',
                                 data: { rut: rut, nombres: nombres, apellidop: apellidop, apellidom: apellidom, celular: celular, correo: correo },
                                 success: function (o) {
-                                    console.log(o.msg);
-                                    if(o.msg == "1") {
+                                    if (o.msg == "1") {
                                         table_body();
                                         $("#rut").val("");
                                         $("#nombres").val("");
@@ -148,7 +147,6 @@ $("#btn_add").on("click", function (e) {
                                         $("#msg_nofify_add").css({ color: "red" });
                                         $("#msg_nofify_add").val("No se pudo agregar, disculpe las molestias");
                                     }
-                                    
                                 },
                                 error: function (e) {
                                     $("#msg_nofify_add").css({ color: "red" });
@@ -206,17 +204,22 @@ $("#btn_edit").on("click", function (e) {
                         dataType: 'json',
                         data: { id_chofer: id_chofer, nombres: nombres, apellidop: apellidop, apellidom: apellidom, celular: celular, correo: correo },
                         success: function (o) {
-                            table_body();
-                            $("#rut").val("");
-                            $("#nombres").val("");
-                            $("#apellidop").val("");
-                            $("#apellidom").val("");
-                            $("#celular").val("");
-                            $("#correo").val("");
-                            $("#msg_nofify_add").val("");
-                            $("#msg_nofify_edit").val("");
-                            $("#msg_nofify").val("");
-                            $('#modal_editar_chofer').modal('hide');
+                            if (o.msg == "1") {
+                                table_body();
+                                $("#new_rut").val("");
+                                $("#new_nombres").val("");
+                                $("#new_apellidop").val("");
+                                $("#new_apellidom").val("");
+                                $("#new_celular").val("");
+                                $("#new_correo").val("");
+                                $("#msg_nofify_add").val("");
+                                $("#msg_nofify_edit").val("");
+                                $("#msg_nofify").val("");
+                                $('#modal_editar_chofer').modal('hide');
+                            } else {
+                                $("#msg_nofify_add").css({ color: "red" });
+                                $("#msg_nofify_add").val("No se pudo editar, disculpe las molestias");
+                            }
                         },
                         error: function (e) {
                             $("#msg_nofify_edit").css({ color: "red" });

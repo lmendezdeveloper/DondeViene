@@ -25,6 +25,11 @@ $(document).ready(function () {
         });
     });
 
+    $("#item_usuarios").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_usuarios");
+    });
+
     $("#item_choferes").on("click", function (e) {
         e.preventDefault();
         $("main").load(base_url + "modulo_choferes");
@@ -38,5 +43,15 @@ $(document).ready(function () {
     $("#item_lineas").on("click", function (e) {
         e.preventDefault();
         $("main").load(base_url + "modulo_lineas");
+    });
+
+    $("#item_horarios").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_horarios");
+    });
+
+    $("#item_tarifas").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_tarifas");
     });
 });
