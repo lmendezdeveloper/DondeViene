@@ -46,7 +46,7 @@ function dar_formato(num) {
 function table_body() {
     var count = 0;
     $("#table_body").empty();
-    var url = 'list_micros';
+    var url = 'https://www.rendicionsostenedor.cl/list_micros';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             count++;
@@ -99,7 +99,7 @@ $("body").on("click", "#btn_modal_editar_chofer", function (e) {
     e.preventDefault();
     var id_micros = $(this).parents("tr").find("td").html();
 
-    var url = 'list_micros';
+    var url = 'https://www.rendicionsostenedor.cl/list_micros';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             if (o.id_micros = id_micros) {
@@ -142,7 +142,7 @@ $("#btn_add").on("click", function (e) {
         $("#msg_nofify_add").val("La capacidad debe ser entre 1 y 50")
     } else {
 
-        var url = 'list_micros';
+        var url = 'https://www.rendicionsostenedor.cl/list_micros';
         $.getJSON(url, function (result) {
             $.each(result, function (i, m) {
                 if (m.patente == patente) {
@@ -154,7 +154,7 @@ $("#btn_add").on("click", function (e) {
                 $("#msg_nofify_add").val("La patente se encuentra registrada")
             } else {
                 $.ajax({
-                    url: 'add_micros',
+                    url: 'https://www.rendicionsostenedor.cl/add_micros',
                     type: 'post',
                     dataType: 'json',
                     data: { marca: marca, modelo: modelo, ano: ano, patente: patente, capacidad: capacidad, km: km },
@@ -208,7 +208,7 @@ $("#btn_edit").on("click", function (e) {
         $("#msg_nofify_edit").css({ color: "red" });
         $("#msg_nofify_edit").val("La capacidad debe ser entre 1 y 50")
     } else {
-        var url = 'list_micros';
+        var url = 'https://www.rendicionsostenedor.cl/list_micros';
         $.getJSON(url, function (result) {
             $.each(result, function (i, m) {
                 if (m.patente == patente && m.id_micros != id_micro) {
@@ -220,7 +220,7 @@ $("#btn_edit").on("click", function (e) {
                 $("#msg_nofify_edit").val("La patente se encuentra registrada")
             } else {
                 $.ajax({
-                    url: 'edit_micros',
+                    url: 'https://www.rendicionsostenedor.cl/edit_micros',
                     type: 'post',
                     dataType: 'json',
                     data: { id_micros: id_micro, marca: marca, modelo: modelo, ano: ano, patente: patente, capacidad: capacidad, km: km },
@@ -267,7 +267,7 @@ $("body").on("click", "#btn_delete", function (e) {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: 'delete_micros',
+                    url: 'https://www.rendicionsostenedor.cl/delete_micros',
                     type: 'post',
                     dataType: 'json',
                     data: { id_micro: id_micro },

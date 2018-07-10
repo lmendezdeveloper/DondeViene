@@ -46,7 +46,7 @@ function dar_formato(num) {
 function table_body() {
     var count = 0;
     $("#table_body").empty();
-    var url = 'list_lineas';
+    var url = 'https://www.rendicionsostenedor.cl/list_lineas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             count++;
@@ -95,7 +95,7 @@ $("body").on("click", "#btn_modal_editar_linea", function (e) {
     e.preventDefault();
     var id_linea = $(this).parents("tr").find("td").html();
 
-    var url = 'list_lineas';
+    var url = 'https://www.rendicionsostenedor.cl/list_lineas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             if (o.id_linea = id_linea) {
@@ -127,7 +127,7 @@ $("#btn_add").on("click", function (e) {
         $("#msg_nofify_add").css({ color: "red" });
         $("#msg_nofify_add").val("Debe completar todos los campos")
     } else {
-        var url = 'list_lineas';
+        var url = 'https://www.rendicionsostenedor.cl/list_lineas';
         $.getJSON(url, function (result) {
             $.each(result, function (i, l) {
                 if (l.codigo == codigo) {
@@ -139,7 +139,7 @@ $("#btn_add").on("click", function (e) {
                 $("#msg_nofify_add").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'add_lineas',
+                    url: 'https://www.rendicionsostenedor.cl/add_lineas',
                     type: 'post',
                     dataType: 'json',
                     data: { codigo: codigo, nombre: nombre, list_estado: list_estado, observacion: observacion },
@@ -183,7 +183,7 @@ $("#btn_edit").on("click", function (e) {
         $("#msg_nofify_edit").css({ color: "red" });
         $("#msg_nofify_edit").val("Debe completar todos los campos")
     } else {
-        var url = 'list_lineas';
+        var url = 'https://www.rendicionsostenedor.cl/list_lineas';
         $.getJSON(url, function (result) {
             $.each(result, function (i, l) {
                 if (l.codigo == codigo && l.id_linea != id_linea) {
@@ -195,7 +195,7 @@ $("#btn_edit").on("click", function (e) {
                 $("#msg_nofify_edit").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'edit_lineas',
+                    url: 'https://www.rendicionsostenedor.cl/edit_lineas',
                     type: 'post',
                     dataType: 'json',
                     data: { id_linea: id_linea, codigo: codigo, nombre: nombre, list_estado: list_estado, observacion: observacion },
@@ -240,7 +240,7 @@ $("body").on("click", "#btn_delete", function (e) {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: 'delete_lineas',
+                    url: 'https://www.rendicionsostenedor.cl/delete_lineas',
                     type: 'post',
                     dataType: 'json',
                     data: { id_linea: id_linea },

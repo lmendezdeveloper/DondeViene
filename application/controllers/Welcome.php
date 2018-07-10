@@ -11,6 +11,8 @@ class Welcome extends CI_Controller {
 		$this->load->model('micros');
 		$this->load->model('lineas');	
 		$this->load->model('horarios');	
+		$this->load->model('tarifas');
+		$this->load->model('trayecto');
     }
 
 	// CONTROLADOR PRINCIPAL //
@@ -374,5 +376,94 @@ class Welcome extends CI_Controller {
 			$this->load->view('login'); 
 		}
 	}		
+
+	// CONTROLLER TARIFAS //
+
+	// cargar modulo tarifas //
+	public function modulo_tarifas() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('mantenedores/tarifas');
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// listar tarifas //
+    public function list_tarifas() {
+        if ($this->session->userdata("user")) {
+        	echo json_encode($this->tarifas->list_tarifas());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// agregar tarifas //
+	public function add_tarifas() {
+		if ($this->session->userdata("user")) {
+			$codigo = $this->input->post("codigo");
+			$tarifa = $this->input->post("tarifa");
+			$fecha = $this->input->post("fecha_inicio");
+			$vigencia = $this->input->post("fecha_termino");
+			$observacion = $this->input->post("observacion");
+			$estado = $this->input->post("list_estado");
+			$id_empresa = 1;
+								
+			if ($this->tarifas->add_tarifas($codigo, $tarifa, $fecha, $vigencia, $observacion, $estado, $id_empresa)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// editar tarifas //
+	public function edit_tarifas() {
+		if ($this->session->userdata("user")) {
+			$id_tarifa = $this->input->post("id_tarifa");
+			$codigo = $this->input->post("codigo");
+			$tarifa = $this->input->post("tarifa");
+			$fecha = $this->input->post("fecha_inicio");
+			$vigencia = $this->input->post("fecha_termino");
+			$observacion = $this->input->post("observacion");
+			$estado = $this->input->post("list_estado");
+	
+			if ($this->tarifas->edit_tarifas($id_tarifa, $codigo, $tarifa, $fecha, $vigencia, $observacion, $estado)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// eliminar tarifas //
+	public function delete_tarifas() {
+		if ($this->session->userdata("user")) {
+			$id_tarifa = $this->input->post("id_tarifa");
+			
+			if ($this->tarifas->delete_tarifas($id_tarifa)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+	
+
+	//CONTROLADOR TRAYECTOS //
+	// listar trayectos //
+	
+	public function list_trayecto() {
+		if ($this->session->userdata("user")) {
+			echo json_encode($this->trayecto->list_trayecto());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
 
 }

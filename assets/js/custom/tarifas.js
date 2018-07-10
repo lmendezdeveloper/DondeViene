@@ -46,21 +46,21 @@ function dar_formato(num) {
 function table_body() {
     var count = 0;
     $("#table_body").empty();
-    var url = 'https://www.rendicionsostenedor.cl/list_horarios';
+    var url = 'list_tarifas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             count++;
             var fil = "<tr>";
-            fil += "<td style='display:none'>" + o.id_horario + "</td>";
+            fil += "<td style='display:none'>" + o.id_tarifa + "</td>";
             fil += "<td>" + o.codigo + "</td>";
-            fil += "<td>" + o.hora_inicio + " a " + o.hora_termino + "</td>";
+            fil += "<td>$" + o.tarifa + "</td>";
             fil += "<td>" + o.fecha.substring(8, 10) + "-" + o.fecha.substring(5, 7) + "-" + o.fecha.substring(0, 4) + " al " + o.vigencia.substring(8, 10) + "-" + o.vigencia.substring(5, 7) + "-" + o.vigencia.substring(0, 4) + "</td>";
             fil += "<td>" + o.observacion + "</td>";
             fil += "<td>" + ((o.estado === "1") ? "ACTIVO" : "INACTIVO") + "</td>";
             fil += "<td align='right'><div class='dropdown show'>";
             fil += "<a class='dropdown' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style='color:grey;'><i class='fas fa-ellipsis-v'></i></a>";
             fil += "<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>";
-            fil += "<a id='btn_modal_editar_horario' class='dropdown-item' data-toggle='modal' data-target='#modal_editar_horario' href='#'>Editar</a>";
+            fil += "<a id='btn_modal_editar_tarifa' class='dropdown-item' data-toggle='modal' data-target='#modal_editar_tarifa' href='#'>Editar</a>";
             fil += "<a id='btn_delete' class='dropdown-item' href='#'>Eliminar</a>";
             fil += "</div>";
             fil += "</div>";
@@ -79,14 +79,13 @@ function table_body() {
 
 // CARGAR MODALES //
 
-// modal nueva linea //
-$("#btn_modal_nuevo_horario").on("click", function (e) {
+// modal nueva tarifa //
+$("#btn_modal_nueva_tarifa").on("click", function (e) {
     e.preventDefault();
     $("#codigo").val("");
-    $("#observacion").val("");
+    $("#tarifa").val("");
     $('#list_estado').val(1);
-    $("#hora_inicio").val("");
-    $("#hora_termino").val("");
+    $("#observacion").val("");
     $("#fecha_inicio").val("");
     $("#fecha_termino").val("");
     $("#msg_nofify_add").val("");
@@ -94,21 +93,20 @@ $("#btn_modal_nuevo_horario").on("click", function (e) {
     $("#msg_nofify").val("");
 });
 
-// modal editar linea //
-$("body").on("click", "#btn_modal_editar_horario", function (e) {
+// modal editar tarifa //
+$("body").on("click", "#btn_modal_editar_tarifa", function (e) {
     e.preventDefault();
-    var id_horario = $(this).parents("tr").find("td").html();
+    var id_tarifa = $(this).parents("tr").find("td").html();
 
-    var url = 'https://www.rendicionsostenedor.cl/list_horarios';
+    var url = 'list_tarifas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
-            if (o.id_horario = id_horario) {
-                $("#id_horario").val(o.id_horario);
+            if (o.id_tarifa = id_tarifa) {
+                $("#id_tarifa").val(o.id_tarifa);
                 $("#new_codigo").val(o.codigo);
                 $("#new_observacion").val(o.observacion);
                 $('#new_list_estado').val(o.estado);
-                $("#new_hora_inicio").val(o.hora_inicio);
-                $("#new_hora_termino").val(o.hora_termino);
+                $("#new_tarifa").val(o.tarifa);
                 $("#new_fecha_inicio").val(o.fecha);
                 $("#new_fecha_termino").val(o.vigencia);
             }
@@ -125,22 +123,21 @@ $("body").on("click", "#btn_modal_editar_horario", function (e) {
 $("#btn_add").on("click", function (e) {
     e.preventDefault();
     var codigo = $("#codigo").val();
-    var observacion = $("#observacion").val();
+    var tarifa = $("#tarifa").val();
     var list_estado = $('#list_estado').val();
-    var hora_inicio = $("#hora_inicio").val();
-    var hora_termino = $("#hora_termino").val();
+    var observacion = $("#observacion").val();
     var fecha_inicio = $("#fecha_inicio").val();
     var fecha_termino = $("#fecha_termino").val();
     var paso = true;
 
-    if (codigo == "" || observacion == "" || list_estado == "" || hora_inicio == "" || hora_termino == "" || fecha_inicio == "" || fecha_termino == "") {
+    if (codigo == "" || tarifa == "" || list_estado == "" || observacion == "" || fecha_inicio == "" || fecha_termino == "") {
         $("#msg_nofify_add").css({ color: "red" });
         $("#msg_nofify_add").val("Debe completar todos los campos")
     } else {
-        var url = 'https://www.rendicionsostenedor.cl/list_horarios';
+        var url = 'list_tarifas';
         $.getJSON(url, function (result) {
-            $.each(result, function (i, h) {
-                if (h.codigo == codigo) {
+            $.each(result, function (i, t) {
+                if (t.codigo == codigo) {
                     paso = false;
                 }
             });
@@ -149,24 +146,23 @@ $("#btn_add").on("click", function (e) {
                 $("#msg_nofify_add").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'https://www.rendicionsostenedor.cl/add_horarios',
+                    url: 'add_tarifas',
                     type: 'post',
                     dataType: 'json',
-                    data: { codigo: codigo, observacion: observacion, list_estado: list_estado, hora_inicio: hora_inicio, hora_termino: hora_termino, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
+                    data: { codigo: codigo, tarifa: tarifa, list_estado: list_estado, observacion: observacion, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
                     success: function (o) {
                         if (o.msg == "1") {
                             table_body();
                             $("#codigo").val("");
-                            $("#observacion").val("");
+                            $("#tarifa").val("");
                             $('#list_estado').val(1);
-                            $("#hora_inicio").val("");
-                            $("#hora_termino").val("");
+                            $("#observacion").val("");
                             $("#fecha_inicio").val("");
                             $("#fecha_termino").val("");
                             $("#msg_nofify_add").val("");
                             $("#msg_nofify_edit").val("");
                             $("#msg_nofify").val("");
-                            $('#modal_nuevo_horario').modal('hide');
+                            $('#modal_nueva_tarifa').modal('hide');
                         } else {
                             $("#msg_nofify_add").css({ color: "red" });
                             $("#msg_nofify_add").val("No se pudo agregar, disculpe las molestias");
@@ -185,26 +181,23 @@ $("#btn_add").on("click", function (e) {
 // editar //
 $("#btn_edit").on("click", function (e) {
     e.preventDefault();
-    var id_horario = $("#id_horario").val();
+    var id_tarifa = $("#id_tarifa").val();
     var codigo = $("#new_codigo").val();
     var observacion = $("#new_observacion").val();
     var list_estado = $('#new_list_estado').val();
-    var hora_inicio = $("#new_hora_inicio").val();
-    var hora_termino = $("#new_hora_termino").val();
+    var tarifa = $("#new_tarifa").val();
     var fecha_inicio = $("#new_fecha_inicio").val();
     var fecha_termino = $("#new_fecha_termino").val();
     var paso = true;
 
-    console.log(codigo + " | " + observacion + " | " + list_estado + " | " + hora_inicio + " | " + hora_termino + " | " + fecha_inicio + " | " + fecha_termino);
-
-    if (codigo == "" || observacion == "" || list_estado == "" || hora_inicio == "" || hora_termino == "" || fecha_inicio == "" || fecha_termino == "") {
-        $("#msg_nofify_add").css({ color: "red" });
-        $("#msg_nofify_add").val("Debe completar todos los campos")
+    if (codigo == "" || tarifa == "" || list_estado == "" || observacion == "" || fecha_inicio == "" || fecha_termino == "") {
+        $("#msg_nofify_edit").css({ color: "red" });
+        $("#msg_nofify_edit").val("Debe completar todos los campos")
     } else {
-        var url = 'https://www.rendicionsostenedor.cl/list_horarios';
+        var url = 'list_tarifas';
         $.getJSON(url, function (result) {
             $.each(result, function (i, h) {
-                if (h.codigo == codigo && h.id_horario != id_horario) {
+                if (h.codigo == codigo && h.id_tarifa != id_tarifa) {
                     paso = false;
                 }
             });
@@ -213,24 +206,23 @@ $("#btn_edit").on("click", function (e) {
                 $("#msg_nofify_edit").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'https://www.rendicionsostenedor.cl/edit_horarios',
+                    url: 'edit_tarifas',
                     type: 'post',
                     dataType: 'json',
-                    data: { id_horario: id_horario, codigo: codigo, observacion: observacion, list_estado: list_estado, hora_inicio: hora_inicio, hora_termino: hora_termino, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
+                    data: { id_tarifa: id_tarifa, codigo: codigo, observacion: observacion, list_estado: list_estado, tarifa: tarifa, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
                     success: function (o) {
                         if (o.msg == "1") {
                             table_body();
                             $("#new_codigo").val("");
                             $("#new_observacion").val("");
                             $('#new_list_estado').val(1);
-                            $("#new_hora_inicio").val("");
-                            $("#new_hora_termino").val("");
+                            $("#new_id_tarifa").val("");
                             $("#new_fecha_inicio").val("");
                             $("#new_fecha_termino").val("");
                             $("#msg_nofify_add").val("");
                             $("#msg_nofify_edit").val("");
                             $("#msg_nofify").val("");
-                            $('#modal_editar_horario').modal('hide');
+                            $('#modal_editar_tarifa').modal('hide');
                         } else {
                             $("#msg_nofify_edit").css({ color: "red" });
                             $("#msg_nofify_edit").val("No se pudo editar, disculpe las molestias");
@@ -249,11 +241,11 @@ $("#btn_edit").on("click", function (e) {
 // eliminar //
 $("body").on("click", "#btn_delete", function (e) {
     e.preventDefault();
-    var id_horario = $(this).parents("tr").find("td").html();
+    var id_tarifa = $(this).parents("tr").find("td").html();
 
     swal({
         title: "¿Esta Seguro?",
-        text: "Se eliminará la micro",
+        text: "Se eliminará la tarifa",
         icon: "warning",
         buttons: ["Cancelar", "Si"],
         dangerMode: true,
@@ -261,18 +253,18 @@ $("body").on("click", "#btn_delete", function (e) {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: 'https://www.rendicionsostenedor.cl/delete_horarios',
+                    url: 'delete_tarifas',
                     type: 'post',
                     dataType: 'json',
-                    data: { id_horario: id_horario },
+                    data: { id_tarifa: id_tarifa },
                     success: function (o) {
                         if (o.msg == "1") {
                             $("#msg_nofify").css({ color: "green" });
-                            $("#msg_nofify").val("Horario eliminado con exito");
+                            $("#msg_nofify").val("Tarifa eliminada con exito");
                             table_body();
                         } else {
                             $("#msg_nofify").css({ color: "red" });
-                            $("#msg_nofify").val("El horario esta siendo usado actualmente");
+                            $("#msg_nofify").val("La tarifa esta siendo usada actualmente");
                         }
                     },
                     error: function () {

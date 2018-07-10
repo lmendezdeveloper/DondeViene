@@ -12,7 +12,7 @@ $(function () {
 function table_body() {
     var count = 0;
     $("#table_body").empty();
-    var url = 'list_choferes';
+    var url = 'https://www.rendicionsostenedor.cl/list_choferes';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             count++;
@@ -64,7 +64,7 @@ $("body").on("click", "#btn_modal_editar_chofer", function (e) {
     e.preventDefault();
     var id_chofer = $(this).parents("tr").find("td").html();
 
-    var url = 'list_choferes';
+    var url = 'https://www.rendicionsostenedor.cl/list_choferes';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             if (o.id_chofer = id_chofer) {
@@ -107,7 +107,7 @@ $("#btn_add").on("click", function (e) {
         if ($.validateRut(rut)) {
             $.validateRut(rut, function (r, dv) {
                 var rut = (r + "-" + dv);
-                var url = 'list_choferes';
+                var url = 'https://www.rendicionsostenedor.cl/list_choferes';
                 $.getJSON(url, function (result) {
                     $.each(result, function (i, u) {
                         if (u.rut == rut) {
@@ -126,7 +126,7 @@ $("#btn_add").on("click", function (e) {
                             $("#msg_nofify_add").val("El correo se encuentra registrado")
                         } else {
                             $.ajax({
-                                url: 'add_choferes',
+                                url: 'https://www.rendicionsostenedor.cl/add_choferes',
                                 type: 'post',
                                 dataType: 'json',
                                 data: { rut: rut, nombres: nombres, apellidop: apellidop, apellidom: apellidom, celular: celular, correo: correo },
@@ -183,7 +183,7 @@ $("#btn_edit").on("click", function (e) {
         $("#msg_nofify_edit").css({ color: "red" });
         $("#msg_nofify_edit").val("Debe ingresar 9 digitos en celular")
     } else {
-        var url = 'list_choferes';
+        var url = 'https://www.rendicionsostenedor.cl/list_choferes';
         $.getJSON(url, function (result) {
             $.each(result, function (i, u) {
                 if (u.mail == correo && u.id_chofer != id_chofer) {
@@ -199,7 +199,7 @@ $("#btn_edit").on("click", function (e) {
                     $("#msg_nofify_edit").val("El correo se encuentra registrado")
                 } else {
                     $.ajax({
-                        url: 'edit_choferes',
+                        url: 'https://www.rendicionsostenedor.cl/edit_choferes',
                         type: 'post',
                         dataType: 'json',
                         data: { id_chofer: id_chofer, nombres: nombres, apellidop: apellidop, apellidom: apellidom, celular: celular, correo: correo },
@@ -247,7 +247,7 @@ $("body").on("click", "#btn_delete", function (e) {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: 'delete_choferes',
+                    url: 'https://www.rendicionsostenedor.cl/delete_choferes',
                     type: 'post',
                     dataType: 'json',
                     data: { id_chofer: id_chofer },

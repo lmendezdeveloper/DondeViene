@@ -8,7 +8,7 @@ function table_body() {
     var count = 0;
     $("#table_body").empty();
     try {
-        var url = 'http://www.rendicionsostenedor.cl/dv_usuario';
+        var url = 'https://www.rendicionsostenedor.cl/list_usuario';
         $.getJSON(url, function (result) {
             $.each(result, function (i, o) {
                 count++;

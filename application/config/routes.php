@@ -45,6 +45,8 @@ $route['add_tarifas'] = 'Welcome/add_tarifas';
 $route['edit_tarifas'] = 'Welcome/edit_tarifas';
 $route['delete_tarifas'] = 'Welcome/delete_tarifas';
 
+$route['list_trayecto'] = 'Welcome/list_trayecto';
+
 // RUTAS CONTINGENCIAS //
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
