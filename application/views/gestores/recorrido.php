@@ -70,7 +70,7 @@
                                 <th scope="col">Horario</th>
                                 <th scope="col">Tarifa</th>
                                 <th scope="col">Observación</th>
-                                <!--<th scope="col"></th>-->
+                                <!--<th scope="col"></th>--> 
                             </tr>
                         </thead>
                         <tbody id="table_body">

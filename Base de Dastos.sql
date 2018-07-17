@@ -262,7 +262,7 @@ CREATE TABLE `preferencia` (
   `id_linea` int(11) NOT NULL,
   PRIMARY KEY (`id_preferencia`),
   KEY `fk_id_usuario_preferencia` (`id_usuario`),
-  CONSTRAINT `fk_id_usuario_preferencia` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  CONSTRAINT `fk_id_usuario_preferencia` FOREIGN KEY (`id_usuario`) REFERENCES `dv_usuario` (`id_usuario`),
   KEY `fk_id_linea_preferencia` (`id_linea`),
   CONSTRAINT `fk_id_linea_preferencia` FOREIGN KEY (`id_linea`) REFERENCES `linea` (`id_linea`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

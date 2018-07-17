@@ -518,6 +518,26 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	// agregar trayecto //
+	public function add_trayecto() {
+		if ($this->session->userdata("user")) {
+			$orden = $this->input->post("orden");
+			$lat = $this->input->post("latitud");
+			$lon = $this->input->post("longitud");
+			$id_recorrido = $this->input->post("list_recorrido");
+			$id_tipo_trayecto = 1;
+			$id_empresa = 1;
+
+			if ($this->trayecto->add_trayecto($orden, $lat, $lon, $id_recorrido, $id_tipo_trayecto, $id_empresa)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
 	// CONTROLLER COMENTARIO //
 
 	public function list_comentarios() {

@@ -53,6 +53,7 @@ $route['add_recorrido'] = 'Welcome/add_recorrido';
 // RUTAS TRAYECTO //
 $route['modulo_trayecto'] = 'Welcome/modulo_trayecto';
 $route['list_trayecto'] = 'Welcome/list_trayecto';
+$route['add_trayecto'] = 'Welcome/add_trayecto';
 
 // RUTAS COMENTARIOS //
 $route['list_comentarios'] = 'Welcome/list_comentarios';
