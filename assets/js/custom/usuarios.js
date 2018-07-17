@@ -18,7 +18,7 @@ function table_body() {
                 fil += "<td>" + o.apellidos.toUpperCase() + "</td>";
                 fil += "<td>" + o.mail.toUpperCase() + "</td>";
                 fil += "<td>" + o.telefono + "</td>";
-                fil += "<td>" + ((o.id_perfil === "1") ? "DESARROLLADOR" : "PASAJERO") + "</td>";
+                fil += "<td>" + ((o.id_perfil=="1")?"DESARROLLADOR":((o.id_perfil=="2")?"CLIENTE":"PASAJERO"))+ "</td>";
                 fil += "</td>";
                 fil += "</tr>";
                 $("#table_body").append(fil);

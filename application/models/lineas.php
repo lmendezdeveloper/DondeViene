@@ -6,6 +6,12 @@ class Lineas extends CI_Model{
         return $this->db->get("linea")->result();
     }
 
+    public function buscarLinea($linea) {
+        $this->db->where("codigo", $id_linea);
+        return $this->db->get("linea")->result();
+    }
+    
+
     public function add_lineas($codigo, $nombre, $list_estado, $observacion, $id_empresa) {
         $data=array("id_linea"=>null,
         "codigo"=>$codigo, 

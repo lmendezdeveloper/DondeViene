@@ -7,7 +7,7 @@
                     <form method="post" id="form_ingresos">
                         <div class="form-row">
                             <div class="col-9">
-                                <h3 class="card-title">Gestión Horarios</h3>
+                                <h3 class="card-title">Mantenedor Horarios</h3>
                             </div>
                             <div class="col-3">
                                 <button class="btn btn-primary btn-block" data-toggle='modal' data-target='#modal_nuevo_horario' id="btn_modal_nuevo_horario">Registrar nuevo</button>

@@ -25,6 +25,11 @@ $(document).ready(function () {
         });
     });
 
+    $("#item_inicio").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "home");
+    });
+
     $("#item_usuarios").on("click", function (e) {
         e.preventDefault();
         $("main").load(base_url + "modulo_usuarios");
@@ -53,5 +58,15 @@ $(document).ready(function () {
     $("#item_tarifas").on("click", function (e) {
         e.preventDefault();
         $("main").load(base_url + "modulo_tarifas");
+    });
+    
+    $("#item_recorrido").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_recorrido");
+    });
+
+    $("#item_trayecto").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_trayecto");
     });
 });

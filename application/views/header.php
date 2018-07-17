@@ -37,7 +37,7 @@
 </head>
 
 <body class="home-body"> 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+	<nav class="navbar navbar-expand-sm bg- text-white navbar-dark sticky-top" style="background-color: #034d40;">
 		<!-- Logo -->
 		<a class="navbar-brand" href="#" id="item_inicio"><i class="fas fa-map-marker-alt"></i>&nbspDonde Viene</a>
 		&nbsp;&nbsp;
@@ -45,7 +45,7 @@
 		<ul class="navbar-nav">
 			<!-- Botones -->
 			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			<a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
 				Mantenedores
 			</a>
 			<div class="dropdown-menu">
@@ -58,28 +58,27 @@
 			</div>
 			</li>
 			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			<a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
 				Gestores
 			</a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#" id="item_trayecto">Trayectos</a>
-				<a class="dropdown-item" href="#">b</a>
-				<a class="dropdown-item" href="#">c</a>
+			<div class="dropdown-menu">				
+				<a class="dropdown-item" href="#" id="item_recorrido">Gestión Recorridos</a>
+				<a class="dropdown-item" href="#" id="item_trayecto">Gestión Trayectos</a>				
 			</div>
 			</li>
 			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			<a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
 				Reportes
 			</a>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">a</a>
-				<a class="dropdown-item" href="#">b</a>
-				<a class="dropdown-item" href="#">c</a>
+				<a class="dropdown-item" href="#">Reporte a</a>
+				<a class="dropdown-item" href="#">Reporte b</a>
+				<a class="dropdown-item" href="#">Reporte c</a>
 			</div>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-			<a class="nav-link"  href="logout">Cerrar Sesión&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+			<a class="nav-link active"  href="logout">Cerrar Sesión&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
 			</li>
 		</ul>
 	</nav>

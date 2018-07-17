@@ -7,7 +7,7 @@
   <meta name="description" content="rendicionsostenedor.cl desarrollado para Profesor Luis Pérez Urrutia">
   <meta name="author" content="Luis Méndez Méndez">
 
-  <title>Rendición Sostenedor</title>
+  <title>Donde Viene</title>
   <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/icono.ico">
     
   <!-- Bootstrap CSS -->
@@ -51,7 +51,7 @@
             <button id="btn_login" class="btn btn-lg btn-primary btn-block">Ingresar</button>
           </p>
           <p class="card-text">
-            <small class="text-muted">© rendicionsostenedor.cl 2018</small>
+            <small class="text-muted">© Rodrigo Manriquez - Luis Mendez</small>
           </p>
         </div>            
       </div>

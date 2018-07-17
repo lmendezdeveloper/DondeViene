@@ -45,7 +45,23 @@ $route['add_tarifas'] = 'Welcome/add_tarifas';
 $route['edit_tarifas'] = 'Welcome/edit_tarifas';
 $route['delete_tarifas'] = 'Welcome/delete_tarifas';
 
+// RUTAS RECORRIDO //
+$route['modulo_recorrido'] = 'Welcome/modulo_recorrido';
+$route['list_recorrido'] = 'Welcome/list_recorrido';
+$route['add_recorrido'] = 'Welcome/add_recorrido';
+
+// RUTAS TRAYECTO //
+$route['modulo_trayecto'] = 'Welcome/modulo_trayecto';
 $route['list_trayecto'] = 'Welcome/list_trayecto';
+
+// RUTAS COMENTARIOS //
+$route['list_comentarios'] = 'Welcome/list_comentarios';
+$route['add_comentarios'] = 'Welcome/add_comentarios';
+
+// RUTAS PREFERENCIAS //
+$route['list_preferencias'] = 'Welcome/list_preferencias';
+$route['add_preferencias'] = 'Welcome/add_preferencias';
+
 
 // RUTAS CONTINGENCIAS //
 $route['404_override'] = '';

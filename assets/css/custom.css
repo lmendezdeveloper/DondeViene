@@ -5,11 +5,38 @@ body {
     height: 100%;
 }
 
+.btn.btn-primary {
+    color: #fff;
+    background-color: #0397a5;
+    border-color: #0397a5;
+  }
+  .btn.btn-primary:hover {
+    color: #fff;
+    background-color: #0397a5;
+    border-color: #0397a5;
+  }
+  .btn.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(3, 119, 65, 0.5);
+  }
+  .btn.btn-success.disabled, .btn-success:disabled {
+    color: #fff;
+    background-color: #0397a5;
+    border-color: #0397a5;
+  }
+  .btn.btn-success:not(:disabled):not(.disabled):active,
+  .btn.btn-success:not(:disabled):not(.disabled).active,
+  .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #0397a5;
+    border-color: #0397a5;
+  }
+  .btn.btn-success:not(:disabled):not(.disabled):active:focus,
+  .btn.btn-success:not(:disabled):not(.disabled).active:focus,
+  .show > .btn.btn-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(3, 119, 65, 0.5);
+  }
 .home-body {
-    background: url(http://localhost/DondeViene/assets/img/fondo.jpg);
-    background-attachment: fixed !important;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-color: #88afac;
 }
 
 .login-body {
@@ -26,7 +53,7 @@ body {
 }
 
 .card-color {
-    background-color: rgb(250, 249, 249);
+    background-color: #f7f7f9;
 }
 
 .card-opacity {

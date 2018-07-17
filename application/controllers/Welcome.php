@@ -13,6 +13,9 @@ class Welcome extends CI_Controller {
 		$this->load->model('horarios');	
 		$this->load->model('tarifas');
 		$this->load->model('trayecto');
+		$this->load->model('comentarios');
+		$this->load->model('recorrido');
+		$this->load->model('preferencia');
     }
 
 	// CONTROLADOR PRINCIPAL //
@@ -453,9 +456,58 @@ class Welcome extends CI_Controller {
 			$this->load->view('login'); 
 		}
 	}
-	
 
-	//CONTROLADOR TRAYECTOS //
+	// CONTROLLER RECORRIDO //
+
+	// cargar modulo recorrido //
+	public function modulo_recorrido() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('gestores/recorrido');
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// listar recorrido //
+	public function list_recorrido() {
+		if ($this->session->userdata("user")) {
+			echo json_encode($this->recorrido->list_recorrido());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// agregar recorrido //
+	public function add_recorrido() {
+		if ($this->session->userdata("user")) {
+			$codigo = $this->input->post("codigo");
+			$observacion = $this->input->post("observacion");
+			$id_linea = $this->input->post("list_linea");
+			$id_horario = $this->input->post("list_horario");
+			$id_tarifa = $this->input->post("list_tarifa");
+			$id_empresa = 1;
+
+			if ($this->recorrido->add_recorrido($codigo, $observacion, $id_linea, $id_horario, $id_tarifa, $id_empresa)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// CONTROLLER TRAYECTO //
+
+	// cargar modulo trayecto //
+	public function modulo_trayecto() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('gestores/trayecto');
+		} else {
+			$this->load->view('login'); 
+		}
+	}	
+
 	// listar trayectos //
 	
 	public function list_trayecto() {
@@ -466,4 +518,66 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	// CONTROLLER COMENTARIO //
+
+	public function list_comentarios() {
+		if ($this->session->userdata("user")) {
+			echo json_encode($this->comentarios->list_comentarios());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	public function add_comentarios() {
+		if ($this->session->userdata("user")) {
+			$puntuacion = $this->input->post("puntuacion");
+			$titulo = $this->input->post("titulo");
+			$observacion = $this->input->post("observacion");
+			$mail = $this->input->post("correo");
+
+			$arrayUser = $this->usuario->buscarUsuario($mail);
+			$id_usuario = $arrayUser[0]->id_usuario;
+
+			if ($this->comentarios->add_comentarios($puntuacion, $titulo, $observacion, $id_usuario)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	// CONTROLLER PREFERENCIAS //
+
+	public function list_preferencias() {
+		if ($this->session->userdata("user")) {
+			echo json_encode($this->preferencia->list_preferencias());
+		} else {
+			$this->load->view('login'); 
+		}
+	}
+
+	public function add_preferencias() {
+		if ($this->session->userdata("user")) {
+			$fecha = $this->input->post("fecha");
+			$hora = $this->input->post("hora");
+			$linea = $this->input->post("linea");
+			$mail = $this->input->post("correo");
+
+			$arrayLinea = $this->lineas->buscarLinea($linea);
+			$id_linea = $arrayLinea[0]->id_linea;
+
+			$arrayUser = $this->usuario->buscarUsuario($mail);
+			$id_usuario = $arrayUser[0]->id_usuario;
+
+			if ($this->preferencia->add_preferencias($fecha, $hora, $id_usuario, $id_linea)) {
+				echo json_encode(array("msg"=>"1"));
+			} else {
+				echo json_encode(array("msg"=>"2"));
+			}
+		} else {
+			$this->load->view('login'); 
+		}
+	}
 }

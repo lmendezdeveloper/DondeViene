@@ -7,7 +7,7 @@
                     <form method="post" id="form_ingresos">
                         <div class="form-row">
                             <div class="col-9">
-                                <h3 class="card-title">Gestión Tarifas</h3>
+                                <h3 class="card-title">Mantenedor Tarifas</h3>
                             </div>
                             <div class="col-3">
                                 <button class="btn btn-primary btn-block" data-toggle='modal' data-target='#modal_nueva_tarifa' id="btn_modal_nueva_tarifa">Registrar nuevo</button>
