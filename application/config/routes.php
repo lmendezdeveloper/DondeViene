@@ -56,13 +56,15 @@ $route['list_trayecto'] = 'Welcome/list_trayecto';
 $route['add_trayecto'] = 'Welcome/add_trayecto';
 
 // RUTAS COMENTARIOS //
+$route['modulo_comentario'] = 'Welcome/modulo_comentario';
 $route['list_comentarios'] = 'Welcome/list_comentarios';
 $route['add_comentarios'] = 'Welcome/add_comentarios';
 
 // RUTAS PREFERENCIAS //
+$route['modulo_preferencia'] = 'Welcome/modulo_preferencia';
+$route['modulo_preferenciaxfecha'] = 'Welcome/modulo_preferenciaxfecha';
 $route['list_preferencias'] = 'Welcome/list_preferencias';
 $route['add_preferencias'] = 'Welcome/add_preferencias';
-
 
 // RUTAS CONTINGENCIAS //
 $route['404_override'] = '';

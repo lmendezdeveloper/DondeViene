@@ -71,9 +71,10 @@
 				Reportes
 			</a>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Reporte a</a>
-				<a class="dropdown-item" href="#">Reporte b</a>
-				<a class="dropdown-item" href="#">Reporte c</a>
+				<a class="dropdown-item" href="#" id="item_comentarios" >Reporte Comentarios</a>
+				<a class="dropdown-item" href="#" id="item_preferencias" >Reporte Preferencias</a>
+				<a class="dropdown-item" href="#" id="item_preferenciasxfecha" >Reporte Concurrencia</a>
+
 			</div>
 		</ul>
 		<ul class="navbar-nav ml-auto">

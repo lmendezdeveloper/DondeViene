@@ -69,4 +69,20 @@ $(document).ready(function () {
         e.preventDefault();
         $("main").load(base_url + "modulo_trayecto");
     });
+
+    $("#item_preferencias").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_preferencia");
+    });
+
+    $("#item_comentarios").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_comentario");
+    });
+
+    $("#item_preferenciasxfecha").on("click", function (e) {
+        e.preventDefault();
+        $("main").load(base_url + "modulo_preferenciaxfecha");
+    });
+
 });

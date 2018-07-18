@@ -540,6 +540,16 @@ class Welcome extends CI_Controller {
 
 	// CONTROLLER COMENTARIO //
 
+	// cargar modulo comentarios //
+	public function modulo_comentario() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('informes/comentario');
+		} else {
+			$this->load->view('login'); 
+		}
+	}	
+
+	// listar comentarios //
 	public function list_comentarios() {
 		if ($this->session->userdata("user")) {
 			echo json_encode($this->comentarios->list_comentarios());
@@ -548,6 +558,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	// agregar comentarios //
 	public function add_comentarios() {
 		if ($this->session->userdata("user")) {
 			$puntuacion = $this->input->post("puntuacion");
@@ -570,6 +581,25 @@ class Welcome extends CI_Controller {
 
 	// CONTROLLER PREFERENCIAS //
 
+	// cargar modulo preferencias //
+	public function modulo_preferencia() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('informes/preferencia');
+		} else {
+			$this->load->view('login'); 
+		}
+	}	
+
+	// cargar modulo preferencias //
+	public function modulo_preferenciaxfecha() {
+        if ($this->session->userdata("user")) {
+			$this->load->view('informes/preferenciaxfecha');
+		} else {
+			$this->load->view('login'); 
+		}
+	}	
+
+	// listar preferencias //
 	public function list_preferencias() {
 		if ($this->session->userdata("user")) {
 			echo json_encode($this->preferencia->list_preferencias());
@@ -578,6 +608,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	// agregar preferencias //
 	public function add_preferencias() {
 		if ($this->session->userdata("user")) {
 			$fecha = $this->input->post("fecha");
