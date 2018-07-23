@@ -46,7 +46,7 @@ function dar_formato(num) {
 function table_body() {
     var count = 0;
     $("#table_body").empty();
-    var url = 'list_tarifas';
+    var url = 'https://www.rendicionsostenedor.cl/list_tarifas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
             count++;
@@ -98,10 +98,10 @@ $("body").on("click", "#btn_modal_editar_tarifa", function (e) {
     e.preventDefault();
     var id_tarifa = $(this).parents("tr").find("td").html();
 
-    var url = 'list_tarifas';
+    var url = 'https://www.rendicionsostenedor.cl/list_tarifas';
     $.getJSON(url, function (result) {
         $.each(result, function (i, o) {
-            if (o.id_tarifa = id_tarifa) {
+            if (o.id_tarifa == id_tarifa) {
                 $("#id_tarifa").val(o.id_tarifa);
                 $("#new_codigo").val(o.codigo);
                 $("#new_observacion").val(o.observacion);
@@ -134,7 +134,7 @@ $("#btn_add").on("click", function (e) {
         $("#msg_nofify_add").css({ color: "red" });
         $("#msg_nofify_add").val("Debe completar todos los campos")
     } else {
-        var url = 'list_tarifas';
+        var url = 'https://www.rendicionsostenedor.cl/list_tarifas';
         $.getJSON(url, function (result) {
             $.each(result, function (i, t) {
                 if (t.codigo == codigo) {
@@ -146,7 +146,7 @@ $("#btn_add").on("click", function (e) {
                 $("#msg_nofify_add").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'add_tarifas',
+                    url: 'https://www.rendicionsostenedor.cl/add_tarifas',
                     type: 'post',
                     dataType: 'json',
                     data: { codigo: codigo, tarifa: tarifa, list_estado: list_estado, observacion: observacion, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
@@ -194,7 +194,7 @@ $("#btn_edit").on("click", function (e) {
         $("#msg_nofify_edit").css({ color: "red" });
         $("#msg_nofify_edit").val("Debe completar todos los campos")
     } else {
-        var url = 'list_tarifas';
+        var url = 'https://www.rendicionsostenedor.cl/list_tarifas';
         $.getJSON(url, function (result) {
             $.each(result, function (i, h) {
                 if (h.codigo == codigo && h.id_tarifa != id_tarifa) {
@@ -206,7 +206,7 @@ $("#btn_edit").on("click", function (e) {
                 $("#msg_nofify_edit").val("El codigo ya se encuentra registrado")
             } else {
                 $.ajax({
-                    url: 'edit_tarifas',
+                    url: 'https://www.rendicionsostenedor.cl/edit_tarifas',
                     type: 'post',
                     dataType: 'json',
                     data: { id_tarifa: id_tarifa, codigo: codigo, observacion: observacion, list_estado: list_estado, tarifa: tarifa, fecha_inicio: fecha_inicio, fecha_termino: fecha_termino },
@@ -242,7 +242,7 @@ $("#btn_edit").on("click", function (e) {
 $("body").on("click", "#btn_delete", function (e) {
     e.preventDefault();
     var id_tarifa = $(this).parents("tr").find("td").html();
-
+    console.log(id_tarifax);
     swal({
         title: "¿Esta Seguro?",
         text: "Se eliminará la tarifa",
@@ -253,7 +253,7 @@ $("body").on("click", "#btn_delete", function (e) {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: 'delete_tarifas',
+                    url: 'https://www.rendicionsostenedor.cl/delete_tarifas',
                     type: 'post',
                     dataType: 'json',
                     data: { id_tarifa: id_tarifa },
